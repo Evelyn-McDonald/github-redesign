@@ -1,1 +1,6 @@
-@import 'components/Header';
+@import 'variables';
+
+@import 'packages/normalize.scss';
+
+@import 'components/Header',
+		'components/UserSearch';
