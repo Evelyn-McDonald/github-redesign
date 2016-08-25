@@ -1,0 +1,9 @@
+{
+  "name": "github-redesign",
+  "description": "Code challenge for Clearpaath Robotics: redesign github profile page",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "react": "^15.3.1",
+    "redux": "^3.5.2"
+  }
+}
