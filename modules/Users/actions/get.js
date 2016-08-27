@@ -1,15 +1,23 @@
-const config	= require('../../../config.js')
+const config    = require('../../../config.js')
 
 // ACTIONS
 const usersSet  = require('./set')
 
 module.exports = function(id) {
     return function(dispatch, getState) {
-		console.log('success', 'config.api');
-    	
-    	$.get(config.api, function(res) {
-			usersSet(res.data);
-		});
+        
+        // $.get(config.api + '/user/repos?page=3&per_page=100', function(res) {
+        //     console.log('users', res)
+        //     // dispatch(usersSet('test'))
+        // });
+
+        fetch(config.api + '/users?page=3&per_page=100', {
+            method: 'get'
+        }).then(function(res) {
+            console.log('users', res)
+        }).catch(function(err) {
+            // Error :(
+        });
 
         // config.api
         // .then(function(res) {

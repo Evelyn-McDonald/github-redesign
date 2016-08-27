@@ -1,23 +1,23 @@
-const React 		= require('react')
+const React         = require('react')
 const Component     = React.Component
 const PropTypes     = React.PropTypes
 
 // Components
-const Header		= require('../components/Header')
-const UserList		= require('../components/UserList')
+const Header        = require('../components/Header')
+const UserList      = require('../components/UserList')
 
 class App extends Component {
 
-	// Render
+    // Render
     render() {
         let content = <UserList/>; 
 
         return ( 
-        	<div className="App">
-	        	<Header/>
-	        	{ content }
-		    </div>
-	    )
+            <div className="App">
+                <Header/>
+                { content }
+            </div>
+        )
     }
 }
 

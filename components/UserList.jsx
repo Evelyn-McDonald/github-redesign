@@ -1,14 +1,14 @@
-const React 		= require('react')
-const connect		= require('react-redux').connect
+const React         = require('react')
+const connect       = require('react-redux').connect
 const Component     = React.Component
 const PropTypes     = React.PropTypes
 
 // ACTIONS
-const getUsers    	= require('../modules/Users/actions/get')
+const getUsers      = require('../modules/Users/actions/get')
 
 const mapStateToProps = function(state, ownProps) {
-	return {
-        users: state.users
+    return {
+        users: state.users.users
     }
 }
 
@@ -22,15 +22,11 @@ class UserList extends Component {
         super(props)
     }
 
-    static initialActions(params) {
-        // Get a batch of users
-        return [
-            getUsers()
-        ]
+    componentDidMount() {
+        this.props.dispatch(getUsers())
     }
 
     // Event Handlers
-    //console.log(this.props.users)
 
     // Render
     render() {

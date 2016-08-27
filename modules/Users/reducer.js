@@ -8,7 +8,7 @@ module.exports = function reducer(state = initialState, action = {}) {
         case constants.SET:
             return {
                 ...state,
-                current: action.users
+                users: action.users
             }
 
         default:
