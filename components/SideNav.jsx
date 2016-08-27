@@ -1,7 +1,18 @@
 const React 		= require('react')
+const connect       = require('react-redux').connect
 const Component     = React.Component
 const PropTypes     = React.PropTypes
 const classNames    = require('classnames')
+
+// ACTIONS
+const setFilterBy   = require('../modules/Users/actions/setFilterBy')
+const getUsers      = require('../modules/Users/actions/get')
+
+const mapStateToProps = function(state, ownProps) {
+    return {
+        filterBy: state.users.filterBy
+    }
+}
 
 class SideNav extends Component {
     // Initialize
@@ -9,17 +20,12 @@ class SideNav extends Component {
         super(props)
 
         this.changeFilter = this.changeFilter.bind(this)
-
-        this.state = {
-            filter: 'POPULAR'
-        }
     }
 
     // Event Handlers
     changeFilter(filter) {
-        this.setState({
-            filter: filter
-        })
+        this.props.dispatch(setFilterBy(filter))
+        this.props.dispatch(getUsers())
     }
 
     // Render
@@ -32,7 +38,7 @@ class SideNav extends Component {
         ]
 
         let filters = options.map((o, i) => {
-            let isActive = (this.state.filter == o.name) ? 'active' : ''
+            let isActive = (this.props.filterBy == o.name) ? 'active' : ''
             return (
             <li key={i} className={classNames('SideNav-filter', isActive)} onClick={this.changeFilter.bind(null, o.name)}>
                 <i className="material-icons">{o.icon}</i>
@@ -51,4 +57,4 @@ class SideNav extends Component {
     }
 }
 
-module.exports = SideNav
+module.exports = connect(mapStateToProps)(SideNav)
