@@ -9,7 +9,7 @@ class App extends Component {
 
 	// Render
     render() {
-        let itemHtml = <li>Hello React</li>; 
+        let itemHtml = <li>Hello people</li>; 
         return ( 
         	<div className="App">
 	        	<Header />
