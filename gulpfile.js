@@ -54,7 +54,7 @@ gulp.task('watch', function(cb) {
 /* Browserify and Watchify functions */
 function makeBundle(watching) {
     var props = {
-        entries: ['app.js', 'index.js'],
+        entries: ['app.js', 'index.js', 'modules/reducers.js'],
         transform: [babelify],
         extensions: ['.js', '.jsx'],
         debug: true,

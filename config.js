@@ -1,4 +1,3 @@
 module.exports = {
-	host: 'localhost',
-	port: '3000',
+	api: 'https://api.github.com'
 };
