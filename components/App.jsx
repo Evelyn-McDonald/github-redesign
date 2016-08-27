@@ -4,6 +4,7 @@ const PropTypes     = React.PropTypes
 
 // Components
 const Header        = require('../components/Header')
+const SideNav       = require('../components/SideNav')
 const UserList      = require('../components/UserList')
 
 class App extends Component {
@@ -15,7 +16,10 @@ class App extends Component {
         return ( 
             <div className="App">
                 <Header/>
-                { content }
+                <SideNav/>
+                <div className="App-container">
+                    { content }
+                </div>
             </div>
         )
     }

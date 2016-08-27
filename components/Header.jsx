@@ -19,7 +19,7 @@ class Header extends Component {
         return (
             <div className="Header">
                 <div className="Header-container">
-                    <span className="Header-github-logo">logo</span>
+                    <span className="Header-github-logo"></span>
                     <UserSearch />
                 </div>
             </div>

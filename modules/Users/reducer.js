@@ -1,6 +1,7 @@
 const constants = require('./constants')
 
 const initialState = {
+    users: []
 };
 
 module.exports = function reducer(state = initialState, action = {}) {

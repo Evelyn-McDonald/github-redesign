@@ -30,8 +30,20 @@ class UserList extends Component {
 
     // Render
     render() {
+        let userlist = (
+            this.props.users.map((u, i) => 
+                <li key={i} className="UserList-user">
+                    <div className="UserList-user-avatar" style={{ backgroundImage: `url(${u.avatar_url})`}}></div>
+                    <span className="UserList-user-name">{u.login}</span>
+                </li>
+            )
+        )
+
         return (
             <div className="UserList">
+                <ul className="UserList-wrapper">
+                    {userlist}
+                </ul>
             </div>
         )
     }

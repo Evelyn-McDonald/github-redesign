@@ -1,0 +1,23 @@
+.UserList {
+    .UserList-wrapper {
+        .UserList-user {
+            background: #eee;
+            display: inline-block;
+            height: 240px;
+            margin: 2%;
+            width: 18%;
+            
+            .UserList-user-avatar {
+                background-size: 100%;
+                background-repeat: no-repeat;
+                display: block;
+                margin: 0 auto;
+                padding-top: 70%;
+                width: 70%;
+            }
+            .UserList-user-name {
+
+            }
+        }
+    }
+}

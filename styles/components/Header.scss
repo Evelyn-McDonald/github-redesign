@@ -1,16 +1,26 @@
 .Header {
-	padding-top: 10px;
+    padding-top: 10px;
     padding-bottom: 10px;
     background-color: #f5f5f5;
     border-bottom: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    width: 100%;
 
     .Header-container {
-	    width: $page-width;
-	    margin-right: auto;
-	    margin-left: auto;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0 20px;
 
-	    .Header-github-logo {
-	    	margin-right: 10px;
-	    }
+        .Header-github-logo {
+            background: url("https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            display: inline-block;
+            height: 20px;
+            margin-right: 240px;
+            vertical-align: middle;
+            width: 70px;
+        }
     }
 }
