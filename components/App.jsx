@@ -9,15 +9,12 @@ class App extends Component {
 
 	// Render
     render() {
-        let itemHtml = <li>Hello people</li>; 
+        let content = <li>Test</li>; 
+
         return ( 
         	<div className="App">
-	        	<Header />
-	        	<div>
-		            <ul>
-		                { itemHtml }
-		            </ul>
-		         </div>
+	        	<Header/>
+	        	{ content }
 		    </div>
 	    )
     }

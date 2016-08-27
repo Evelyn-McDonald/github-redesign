@@ -6,7 +6,7 @@ var sass    	= require('gulp-sass');
 var source      = require('vinyl-source-stream');
 var rename      = require('gulp-rename');
 var runSequence = require('run-sequence');
-var nodemon     = require('gulp-nodemon');
+var webserver   = require('gulp-webserver');
 
 var watching = false;
 
@@ -33,24 +33,21 @@ gulp.task('watch:sass', function () {
 
 
 /* Start server */
-gulp.task('start:redux', function () {
-    nodemon({
-        script: './app.js',
-        verbose: true,
-        watch: './',
-        ext: 'js jsx scss'
-    })
-    //.on('restart', 'build:redux', 'build:sass')
-})
+gulp.task('start:server', function () {
+    var options = { livereload: true };
+    if (!watching) options.open = true;
 
+    gulp.src('')
+    .pipe(webserver(options));
+})
 
 /* Gulp Tasks */
 gulp.task('default', function(cb) {
-    runSequence(['build:redux', 'build:sass'], 'start:redux', cb );
+    runSequence(['build:redux', 'build:sass'], 'start:server', cb );
 });
 
 gulp.task('watch', function(cb) {
-    runSequence(['watching', 'build:redux', 'build:sass'], 'start:redux', ['watch:sass'], cb);
+    runSequence(['watching', 'build:redux', 'build:sass'], 'start:server', ['watch:sass'], cb);
 });
 
 
