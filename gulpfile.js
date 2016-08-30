@@ -34,7 +34,7 @@ gulp.task('watch:sass', function () {
 
 /* Start server */
 gulp.task('start:server', function () {
-    var options = { livereload: true };
+    var options = { livereload: false };
     if (!watching) options.open = true;
 
     gulp.src('')
