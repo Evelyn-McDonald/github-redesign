@@ -10,38 +10,53 @@ module.exports = function(id) {
         const searchTerm = state.users.searchTerm
 
         let data
+        let d = new Date()
+        d.setDate(d.getDate() - 4)
 
         switch(filterBy) {
             case 'SEARCH':
                 fetch(config.api + '/search/users?q=' + searchTerm)
                 .then(function(response) {
-                    return response.json();
+                    return response.json()
                 }).then(function(data) {
                     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
-                    console.log(err);
+                    console.log(err)
                 });
                 break
 
             case 'POPULAR':
-                fetch(config.api + '/users?page=3&per_page=2')
+                fetch(config.api + '/search/users?q=followers:>=3000&per_page=4')
                 .then(function(response) {
-                    return response.json();
+                    return response.json()
                 }).then(function(data) {
-                    dispatch(usersSet(data.length, data))
+                    dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
-                    console.log(err);
+                    console.log(err)
                 });
                 break
 
             case 'TRENDING':
-                fetch(config.api + '/users?page=3&per_page=2')
+                fetch(config.api + '/search/repositories?q=created:>='+d.toISOString().slice(0,10)+'&sort=stars&order=desc&per_page=4')
                 .then(function(response) {
-                    return response.json();
-                }).then(function(data) {
-                    dispatch(usersSet(data.length, data))
+                    return response.json()
+                })
+
+                .then(function(data) {
+                    dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
-                    console.log(err);
+                    console.log(err)
+                });
+                break
+
+            case 'NEW':
+                fetch(config.api + '/search/users?q=created:>='+d.toISOString().slice(0,10)+'&per_page=4')
+                .then(function(response) {
+                    return response.json()
+                }).then(function(data) {
+                    dispatch(usersSet(data.items.length, data.items))
+                }).catch(function(err) {
+                    console.log(err)
                 });
                 break
         }

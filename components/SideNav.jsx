@@ -34,7 +34,7 @@ class SideNav extends Component {
             { name: 'SEARCH', icon: 'search'},
             { name: 'POPULAR', icon: 'star_rate'},
             { name: 'TRENDING', icon: 'trending_up'},
-            { name: 'NEW', icon: 'star_rate'}
+            { name: 'NEW', icon: 'loyalty'}
         ]
 
         let filters = options.map((o, i) => {
@@ -48,7 +48,7 @@ class SideNav extends Component {
 
         return (
             <div className="SideNav">
-                <span className="SideNav-title">Query Users</span>
+                <span className="SideNav-title">User Filters</span>
                 <ul className="SideNav-filters">
                     {filters}
                 </ul>

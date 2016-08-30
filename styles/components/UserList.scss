@@ -2,24 +2,32 @@
     .UserList-wrapper {
         margin: 0;
         padding: 0;
-        
+
         .UserList-user {
-            background: #eee;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
             display: inline-block;
             height: 240px;
             margin: 2%;
+            padding: 10px;
             width: 18%;
+
+            &:hover {
+                cursor: pointer;
+            }
             
             .UserList-user-avatar {
                 background-size: 100%;
                 background-repeat: no-repeat;
                 display: block;
                 margin: 0 auto;
-                padding-top: 70%;
-                width: 70%;
+                padding-top: 100%;
+                width: 100%;
             }
             .UserList-user-name {
-
+                color: $font_blue;
+                display: block;
+                margin-top: 10px;
             }
         }
     }
