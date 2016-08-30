@@ -23,6 +23,8 @@ class UserList extends Component {
 
     constructor(props) {
         super(props)
+
+        this.handleSelectedUser = this.handleSelectedUser.bind(this)
     }
 
     componentDidMount() {
@@ -30,6 +32,9 @@ class UserList extends Component {
     }
 
     // Event Handlers
+    handleSelectedUser(username) {
+
+    }
 
     // Render
     render() {
@@ -39,14 +44,14 @@ class UserList extends Component {
 
         let userlist = (
             this.props.users.map((u, i) => 
-                <li key={i} className="UserList-user">
+                <li key={i} 
+                    className="UserList-user"
+                    onClick="">
                     <div className="UserList-user-avatar" style={{ backgroundImage: `url(${u.avatar_url})`}}></div>
                     <span className="UserList-user-name">{u.login}</span>
                 </li>
             )
         )
-
-        let filterTotal
 
         return (
             <div className="UserList">

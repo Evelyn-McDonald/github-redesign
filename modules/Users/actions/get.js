@@ -1,4 +1,5 @@
 const config    = require('../../../config.js')
+const _         = require('underscore')
 
 // ACTIONS
 const usersSet  = require('./set')
@@ -10,6 +11,7 @@ module.exports = function(id) {
         const searchTerm = state.users.searchTerm
 
         let data
+        let users
         let d = new Date()
         d.setDate(d.getDate() - 4)
 
@@ -19,7 +21,21 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    dispatch(usersSet(data.items.length, data.items))
+                    users = data.items.map((o, i) => {
+                        return fetch(config.api + '/users/' + o.login)
+                        .then(function(response2) {
+                            return response2.json()
+                        }).then(function(data2) {
+                            return data2;
+                        }).catch(function(err) {
+                            console.log(err)
+                        });
+                    })
+                }).then(function() {
+                    dispatch(usersSet(users.length, users))
+
+                // }).then(function(data) {
+                //     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
                     console.log(err)
                 });
@@ -30,7 +46,18 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    dispatch(usersSet(data.items.length, data.items))
+                    users = data.items.map((o, i) => {
+                        return fetch(config.api + '/users/' + o.login)
+                        .then(function(response2) {
+                            return response2.json()
+                        }).then(function(data2) {
+                            return data2;
+                        }).catch(function(err) {
+                            console.log(err)
+                        });
+                    })
+                }).then(function() {
+                    dispatch(usersSet(users.length, users))
                 }).catch(function(err) {
                     console.log(err)
                 });
@@ -40,10 +67,24 @@ module.exports = function(id) {
                 fetch(config.api + '/search/repositories?q=created:>='+d.toISOString().slice(0,10)+'&sort=stars&order=desc&per_page=4')
                 .then(function(response) {
                     return response.json()
-                })
+                }).then(function(data) {
+                    users = data.items.map((o, i) => {
+                        return fetch(config.api + '/users/' + o.login)
+                        .then(function(response2) {
+                            return response2.json()
+                        }).then(function(data2) {
+                            return data2;
+                        }).catch(function(err) {
+                            console.log(err)
+                        });
+                    })
+                }).then(function() {
+                    dispatch(usersSet(users.length, users))
 
-                .then(function(data) {
-                    dispatch(usersSet(data.items.length, data.items))
+
+                // })
+                // .then(function(data) {
+                //     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
                     console.log(err)
                 });
@@ -54,7 +95,22 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    dispatch(usersSet(data.items.length, data.items))
+                    users = data.items.map((o, i) => {
+                        return fetch(config.api + '/users/' + o.login)
+                        .then(function(response2) {
+                            return response2.json()
+                        }).then(function(data2) {
+                            return data2;
+                        }).catch(function(err) {
+                            console.log(err)
+                        });
+                    })
+                }).then(function() {
+                    dispatch(usersSet(users.length, users))
+
+
+                // }).then(function(data) {
+                //     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
                     console.log(err)
                 });
