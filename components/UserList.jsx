@@ -50,20 +50,7 @@ class UserList extends Component {
         let userlist = <Loader/>
 
         if (this.props.total >= 0) {
-            if (this.props.filterBy == 'SEARCH' && typeof this.props.searchTerm !== 'undefined') {
-                searchMessage = this.props.total + ' results for \'' + this.props.searchTerm + '\''
-                userlist = (
-                    this.props.users.map((u, i) => 
-                        <li key={i} 
-                            className="UserList-user"
-                            onClick={this.handleSelectedUser.bind(null, u.login)}>
-                            <div className="UserList-user-avatar" style={{ backgroundImage: `url(${u.avatar_url})`}}></div>
-                            <span className="UserList-user-name">{u.login}</span>
-                        </li>
-                    )
-                )
-            }
-            else if (this.props.filterBy != 'SEARCH') {
+            if (this.props.filterBy != 'SEARCH' || (this.props.filterBy == 'SEARCH' && typeof this.props.searchTerm !== 'undefined')) {
                 searchMessage = 'Showing top ' + this.props.total + ' users'
                 userlist = (
                     this.props.users.map((u, i) => 
@@ -74,6 +61,7 @@ class UserList extends Component {
                 )
             }
             else {
+                searchMessage = 'Lorem Ipsum'
                 userlist = <p className="UserList-placeholder">Donec sit amet ullamcorper velit, a pellentesque arcu</p>
             }
         }

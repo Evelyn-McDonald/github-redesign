@@ -32,5 +32,5 @@
 }
 .fadeIn-leave.fadeIn-leave-active {
     opacity: 0;
-    @include transition(opacity 0.4s ease-in);
+    @include transition(opacity 0.2s ease-in);
 }
