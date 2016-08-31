@@ -3,8 +3,8 @@ const connect       = require('react-redux').connect
 const Component     = React.Component
 const PropTypes     = React.PropTypes
 
-// Components
-const UserSearch    = require('../components/UserSearch')
+// COMPONENTS
+const UserCard      = require('../components/UserCard')
 
 // ACTIONS
 const setSearchTerm = require('../modules/Users/actions/setSearchTerm')
@@ -22,14 +22,14 @@ const mapStateToProps = function(state, ownProps) {
 
 class UserList extends Component {
     // Initialize
-    static propTypes = {
-        //users: PropTypes.array.isRequired
-    }
-
     constructor(props) {
         super(props)
 
         this.handleSelectedUser = this.handleSelectedUser.bind(this)
+    }
+    
+    static propTypes = {
+        //users: PropTypes.array.isRequired
     }
 
     componentDidMount() {
@@ -66,12 +66,9 @@ class UserList extends Component {
                 searchMessage = 'Showing top ' + this.props.total + ' users'
                 userlist = (
                     this.props.users.map((u, i) => 
-                        <li key={i} 
-                            className="UserList-user"
-                            onClick={this.handleSelectedUser.bind(null, u.login)}>
-                            <div className="UserList-user-avatar" style={{ backgroundImage: `url(${u.avatar_url})`}}></div>
-                            <span className="UserList-user-name">{u.login}</span>
-                        </li>
+                        <UserCard key={i} 
+                                  user={u}
+                                  onSelect={this.handleSelectedUser}/>
                     )
                 )
             }

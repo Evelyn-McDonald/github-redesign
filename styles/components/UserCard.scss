@@ -1,0 +1,66 @@
+.UserCard {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    display: inline-block;
+    margin: 2%;
+    vertical-align: top;
+    width: 20%;
+    
+    @media screen and (max-width: 1340px) {
+        width: 28%;
+    }
+    @media screen and (max-width: 1020px) {
+        width: 46%;
+    }
+
+    &:hover {
+        cursor: pointer;
+        @include box-shadow(0px 0px 8px 0px rgba(0,0,0,0.15));
+    }
+
+    .UserCard-wrapper {
+        list-style: none;
+        
+        .UserCard-user-avatar {
+            background-size: 100%;
+            background-repeat: no-repeat;
+            display: block;
+            margin: 0 auto;
+            padding-top: 100%;
+            width: 100%;
+        }
+        .UserCard-user-name {
+            display: block;
+            font-size: 22px;
+            font-weight: 300;
+            margin: 10px 10px 2px;
+        }
+        .UserCard-user-login {
+            color: $font_blue;
+            display: block;
+            font-size: 14px;
+            margin: 0 10px 20px;
+        }
+        .UserCard-user-stat {
+            background: #ffffff;
+            border-top: 1px solid #eee;
+            display: inline-block;
+            padding: 17px 0;
+            text-align: center;
+            width: 33%;
+            .UserCard-user-stat-title {
+                color: #888;
+                display: block;
+                font-size: 10px;
+                font-weight: 300;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+            }
+            .UserCard-user-stat-value {                
+                display: inline-block;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+    }
+}

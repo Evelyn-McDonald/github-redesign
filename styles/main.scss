@@ -1,9 +1,11 @@
-@import 'variables';
+@import 'variables',
+		'mixins';
 
 @import 'packages/normalize.scss';
 
 @import 'components/App',
 		'components/Header',
 		'components/SideNav',
+		'components/UserCard',
 		'components/UserList',
 		'components/UserSearch';
