@@ -29,7 +29,7 @@ class User extends Component {
                 <div className="User-avatar" style={{ backgroundImage: `url(${data.avatar_url})`}}></div>
                 <div className="User-details">
                     <h1 className="User-name">{data.name}</h1>
-                    <a href="https://github.com/Evelyn-McDonald">
+                    <a href={data.html_url}>
                         <i className="material-icons">launch</i>
                         <h2 className="User-login">{data.login}</h2>
                     </a>

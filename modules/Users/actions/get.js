@@ -52,8 +52,23 @@ module.exports = function(id) {
                         })
                     )
                     .then(function(users) {
-                        dispatch(usersSet(users.length, users))
-                        return users
+                        Promise.all(
+                            users.map((o, i) => {
+                                return fetch(o.repos_url + '?' + config.api_auth)
+                                .then(function(response2) {
+                                    return response2.json()
+                                }).then(function(repos) {
+                                    o.repos = repos
+                                    return o;
+                                }).catch(function(err) {
+                                    console.log(err)
+                                });
+                            })
+                        )
+                        .then(function(users) {
+                            dispatch(usersSet(users.length, users))
+                            //return users
+                        })
                     })
                 }).catch(function(err) {
                     console.log(err)

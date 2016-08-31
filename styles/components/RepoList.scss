@@ -24,6 +24,10 @@
             padding: 14px 16px;
             position: relative;
 
+            &:hover {
+                cursor: pointer;
+            }
+
             &:not(:last-child) {
                 border-bottom: 1px solid #e5e5e5;
             }

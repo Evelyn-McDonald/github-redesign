@@ -1,8 +1,6 @@
 # github-redesign
 Code challenge for Clearpath Robotics
 
-[View demo]( http://demo.com )
-
 
 ##Run this example
 ```
