@@ -11,7 +11,6 @@ module.exports = function(id) {
         const searchTerm = state.users.searchTerm
 
         let data
-        let users
         let d = new Date()
         d.setDate(d.getDate() - 4)
 
@@ -21,8 +20,8 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    users = data.items.map((o, i) => {
-                        return fetch(config.api + '/users/' + o.login)
+                    return data.items.map((o, i) => {
+                        fetch(config.api + '/users/' + o.login)
                         .then(function(response2) {
                             return response2.json()
                         }).then(function(data2) {
@@ -31,11 +30,8 @@ module.exports = function(id) {
                             console.log(err)
                         });
                     })
-                }).then(function() {
+                }).then(function(users) {
                     dispatch(usersSet(users.length, users))
-
-                // }).then(function(data) {
-                //     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
                     console.log(err)
                 });
@@ -46,8 +42,8 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    users = data.items.map((o, i) => {
-                        return fetch(config.api + '/users/' + o.login)
+                    return data.items.map((o, i) => {
+                        fetch(config.api + '/users/' + o.login)
                         .then(function(response2) {
                             return response2.json()
                         }).then(function(data2) {
@@ -56,7 +52,8 @@ module.exports = function(id) {
                             console.log(err)
                         });
                     })
-                }).then(function() {
+                }).then(function(users) {
+                    console.log(users)
                     dispatch(usersSet(users.length, users))
                 }).catch(function(err) {
                     console.log(err)
@@ -68,8 +65,8 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    users = data.items.map((o, i) => {
-                        return fetch(config.api + '/users/' + o.login)
+                    return data.items.map((o, i) => {
+                        fetch(config.api + '/users/' + o.owner.login)
                         .then(function(response2) {
                             return response2.json()
                         }).then(function(data2) {
@@ -78,13 +75,8 @@ module.exports = function(id) {
                             console.log(err)
                         });
                     })
-                }).then(function() {
+                }).then(function(users) {
                     dispatch(usersSet(users.length, users))
-
-
-                // })
-                // .then(function(data) {
-                //     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
                     console.log(err)
                 });
@@ -95,8 +87,8 @@ module.exports = function(id) {
                 .then(function(response) {
                     return response.json()
                 }).then(function(data) {
-                    users = data.items.map((o, i) => {
-                        return fetch(config.api + '/users/' + o.login)
+                    return data.items.map((o, i) => {
+                        fetch(config.api + '/users/' + o.login)
                         .then(function(response2) {
                             return response2.json()
                         }).then(function(data2) {
@@ -105,12 +97,8 @@ module.exports = function(id) {
                             console.log(err)
                         });
                     })
-                }).then(function() {
+                }).then(function(users) {
                     dispatch(usersSet(users.length, users))
-
-
-                // }).then(function(data) {
-                //     dispatch(usersSet(data.items.length, data.items))
                 }).catch(function(err) {
                     console.log(err)
                 });
