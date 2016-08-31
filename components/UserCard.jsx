@@ -1,5 +1,4 @@
 const React         = require('react')
-const connect       = require('react-redux').connect
 const Component     = React.Component
 const PropTypes     = React.PropTypes
 
@@ -28,20 +27,20 @@ class UserCard extends Component {
             <div className="UserCard">
                 <li className="UserCard-wrapper"
                     onClick={this.handleSelectedUser.bind(null, this.props.user.login)}>
-                    <div className="UserCard-user-avatar" style={{ backgroundImage: `url(${this.props.user.avatar_url})`}}></div>
-                    <span className="UserCard-user-name">{this.props.user.name}</span>
-                    <span className="UserCard-user-login">/{this.props.user.login}</span>
-                    <div className="UserCard-user-stat">
-                        <span className="UserCard-user-stat-title">Repos</span>
-                        <span className="UserCard-user-stat-value">{this.props.user.public_repos}</span>
+                    <div className="UserCard-avatar" style={{ backgroundImage: `url(${this.props.user.avatar_url})`}}></div>
+                    <span className="UserCard-name">{this.props.user.name}</span>
+                    <span className="UserCard-login">/{this.props.user.login}</span>
+                    <div className="UserCard-stat">
+                        <span className="UserCard-stat-title">Repos</span>
+                        <span className="UserCard-stat-value">{this.props.user.public_repos}</span>
                     </div>
-                    <div className="UserCard-user-stat">
-                        <span className="UserCard-user-stat-title">Following</span>
-                        <span className="UserCard-user-stat-value">{this.props.user.following}</span>
+                    <div className="UserCard-stat">
+                        <span className="UserCard-stat-title">Followers</span>
+                        <span className="UserCard-stat-value">{this.props.user.followers}</span>
                     </div>
-                    <div className="UserCard-user-stat">
-                        <span className="UserCard-user-stat-title">Followers</span>
-                        <span className="UserCard-user-stat-value">{this.props.user.followers}</span>
+                    <div className="UserCard-stat">
+                        <span className="UserCard-stat-title">Following</span>
+                        <span className="UserCard-stat-value">{this.props.user.following}</span>
                     </div>
                 </li>
             </div>

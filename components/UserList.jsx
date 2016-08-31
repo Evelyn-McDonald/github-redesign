@@ -2,8 +2,10 @@ const React         = require('react')
 const connect       = require('react-redux').connect
 const Component     = React.Component
 const PropTypes     = React.PropTypes
+const ReactCSSTransitionGroup = require('react-addons-css-transition-group')
 
 // COMPONENTS
+const Loader        = require('../components/Loader')
 const UserCard      = require('../components/UserCard')
 
 // ACTIONS
@@ -29,7 +31,6 @@ class UserList extends Component {
     }
     
     static propTypes = {
-        //users: PropTypes.array.isRequired
     }
 
     componentDidMount() {
@@ -45,8 +46,8 @@ class UserList extends Component {
 
     // Render
     render() {
-        let searchMessage = 'Lorem Ipsum'
-        let userlist = <p className="UserList-placeholder">Donec sit amet ullamcorper velit, a pellentesque arcu</p>
+        let searchMessage = ''
+        let userlist = <Loader/>
 
         if (this.props.total >= 0) {
             if (this.props.filterBy == 'SEARCH' && typeof this.props.searchTerm !== 'undefined') {
@@ -72,13 +73,18 @@ class UserList extends Component {
                     )
                 )
             }
+            else {
+                userlist = <p className="UserList-placeholder">Donec sit amet ullamcorper velit, a pellentesque arcu</p>
+            }
         }
 
         return (
             <div className="UserList">
                 <span>{searchMessage}</span>
                 <ul className="UserList-wrapper">
-                    {userlist}
+                    <ReactCSSTransitionGroup transitionName="fadeIn" transitionEnterTimeout={400} transitionLeaveTimeout={400} >
+                        {userlist}
+                    </ReactCSSTransitionGroup>
                 </ul>
             </div>
         )

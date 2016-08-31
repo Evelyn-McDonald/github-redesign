@@ -1,10 +1,12 @@
 @import 'variables',
-		'mixins';
+		'mixins',
+		'animations';
 
 @import 'packages/normalize.scss';
 
 @import 'components/App',
 		'components/Header',
+		'components/Loader',
 		'components/SideNav',
 		'components/UserCard',
 		'components/UserList',

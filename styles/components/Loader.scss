@@ -1,16 +1,4 @@
-.UserList {
-    .UserList-wrapper {
-        margin: 0;
-        padding: 0;
-
-        .UserList-placeholder {
-            color: #777777;
-            font-size: 13px;
-        }
-    }
-}
-
-.loading-wrapper{
+.Loader{
     width: 100%;
     height: 100%;
     position: absolute;

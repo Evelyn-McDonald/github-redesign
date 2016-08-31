@@ -1,0 +1,36 @@
+// Rotate
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+
+// Bounce
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+// FADE IN
+.fadeIn-enter {
+    opacity: 0;
+}
+.fadeIn-enter.fadeIn-enter-active {
+    opacity: 1;
+    @include transition(opacity 0.4s ease-in);
+}
+.fadeIn-leave {
+    opacity: 1;
+}
+.fadeIn-leave.fadeIn-leave-active {
+    opacity: 0;
+    @include transition(opacity 0.4s ease-in);
+}

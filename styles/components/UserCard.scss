@@ -21,7 +21,7 @@
     .UserCard-wrapper {
         list-style: none;
         
-        .UserCard-user-avatar {
+        .UserCard-avatar {
             background-size: 100%;
             background-repeat: no-repeat;
             display: block;
@@ -29,26 +29,28 @@
             padding-top: 100%;
             width: 100%;
         }
-        .UserCard-user-name {
+        .UserCard-name {
             display: block;
             font-size: 22px;
             font-weight: 300;
+            height: 26px;
             margin: 10px 10px 2px;
+            overflow: hidden;
         }
-        .UserCard-user-login {
+        .UserCard-login {
             color: $font_blue;
             display: block;
             font-size: 14px;
             margin: 0 10px 20px;
         }
-        .UserCard-user-stat {
+        .UserCard-stat {
             background: #ffffff;
             border-top: 1px solid #eee;
             display: inline-block;
             padding: 17px 0;
             text-align: center;
             width: 33%;
-            .UserCard-user-stat-title {
+            .UserCard-stat-title {
                 color: #888;
                 display: block;
                 font-size: 10px;
@@ -56,7 +58,7 @@
                 margin-bottom: 4px;
                 text-transform: uppercase;
             }
-            .UserCard-user-stat-value {                
+            .UserCard-stat-value {                
                 display: inline-block;
                 text-align: center;
                 font-size: 18px;
