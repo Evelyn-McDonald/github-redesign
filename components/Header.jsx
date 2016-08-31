@@ -12,8 +12,6 @@ class Header extends Component {
         super(props)
     }
 
-    // Event Handlers
-
     // Render
     render() {
         return (

@@ -18,8 +18,6 @@ class User extends Component {
         super(props)
     }
 
-    // Event Handlers
-
     // Render
     render() {
         let data = this.props.users[0]
