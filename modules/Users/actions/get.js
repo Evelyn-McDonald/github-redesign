@@ -19,8 +19,16 @@ module.exports = function(id) {
                 fetch(config.api + '/users/' + searchTerm + '?'+config.api_auth)
                 .then(function(response) {
                     return response.json()
-                }).then(function(data) {
-                    dispatch(usersSet(1, [data]))
+                }).then(function(user) {
+                    return fetch(user.repos_url + '?' + config.api_auth)
+                    .then(function(response2) {
+                        return response2.json()
+                    }).then(function(repos) {
+                        user.repos = repos
+                        dispatch(usersSet(1, [user]))
+                    }).catch(function(err) {
+                        console.log(err)
+                    });
                 }).catch(function(err) {
                     console.log(err)
                 });

@@ -39,8 +39,8 @@ class UserList extends Component {
 
     // Event Handlers
     handleSelectedUser(username) {
-        this.props.dispatch(setSearchTerm(username))
         this.props.dispatch(setFilterBy('USER'))
+        this.props.dispatch(setSearchTerm(username))
         this.props.dispatch(getUsers())
     }
 
@@ -61,8 +61,8 @@ class UserList extends Component {
                 )
             }
             else {
-                searchMessage = 'Lorem Ipsum'
-                userlist = <p className="UserList-placeholder">Donec sit amet ullamcorper velit, a pellentesque arcu</p>
+                searchMessage = 'Search GitHub users'
+                userlist = <p className="UserList-placeholder">Enter the username of the GitHub user in the search box.</p>
             }
         }
 

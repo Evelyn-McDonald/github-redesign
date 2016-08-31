@@ -48,7 +48,7 @@ class User extends Component {
                     </div>
                 </div>
 
-                <RepoList/>
+                <RepoList repos={data.repos}/>
             </div>
         )
 
