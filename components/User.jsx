@@ -21,9 +21,9 @@ class User extends Component {
     render() {
         let user = (
             <div className="User-wrapper">
-                <div className="User-avatar" style={{ backgroundImage: `url()`}}></div>
-                <h1 className="User-name">name: Evelyn McDonald</h1>
-                <h2 className="User-username">login: evelyn-mcdonald</h2>
+                <div className="User-avatar" style={{ backgroundImage: `url(${this.props.users.avatar_url})`}}></div>
+                <h1 className="User-name">{this.props.users.name}</h1>
+                <h2 className="User-username">{this.props.users.login}</h2>
                 <span className="User-followers">1234</span>
             </div>
         )

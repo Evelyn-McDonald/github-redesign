@@ -39,7 +39,7 @@ class UserList extends Component {
     // Event Handlers
     handleSelectedUser(username) {
         this.props.dispatch(setSearchTerm(username))
-        this.props.dispatch(setFilterBy('SEARCH'))
+        this.props.dispatch(setFilterBy('USER'))
         this.props.dispatch(getUsers())
     }
 
@@ -68,7 +68,7 @@ class UserList extends Component {
                     this.props.users.map((u, i) => 
                         <li key={i} 
                             className="UserList-user"
-                            onClick="">
+                            onClick={this.handleSelectedUser.bind(null, u.login)}>
                             <div className="UserList-user-avatar" style={{ backgroundImage: `url(${u.avatar_url})`}}></div>
                             <span className="UserList-user-name">{u.login}</span>
                         </li>
