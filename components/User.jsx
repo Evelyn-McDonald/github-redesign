@@ -22,27 +22,29 @@ class User extends Component {
 
     // Render
     render() {
+        let data = this.props.users[0]
+
         let user = (
             <div className="User-wrapper">
-                <div className="User-avatar" style={{ backgroundImage: `url("https://avatars.githubusercontent.com/u/1?v=3")`}}></div>
+                <div className="User-avatar" style={{ backgroundImage: `url(${data.avatar_url})`}}></div>
                 <div className="User-details">
-                    <h1 className="User-name">Tom Preston-Werner</h1>
+                    <h1 className="User-name">{data.name}</h1>
                     <a href="https://github.com/Evelyn-McDonald">
                         <i className="material-icons">launch</i>
-                        <h2 className="User-login">mojombo</h2>
+                        <h2 className="User-login">{data.login}</h2>
                     </a>
-                    <h2 className="User-joined-date">Joined on Oct 14, 2011</h2>
+                    <h2 className="User-joined-date">Joined on {data.created_at.substring(0,10)}</h2>
                     <div className="User-stat">
                         <span className="User-stat-title">Repos</span>
-                        <span className="User-stat-value">60</span>
+                        <span className="User-stat-value">{data.public_repos}</span>
                     </div>
                     <div className="User-stat">
                         <span className="User-stat-title">Followers</span>
-                        <span className="User-stat-value">19617</span>
+                        <span className="User-stat-value">{data.followers}</span>
                     </div>
                     <div className="User-stat">
                         <span className="User-stat-title">Following</span>
-                        <span className="User-stat-value">11</span>
+                        <span className="User-stat-value">{data.following}</span>
                     </div>
                 </div>
 
